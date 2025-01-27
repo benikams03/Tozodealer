@@ -1,0 +1,13 @@
+{
+    "name": "kevin/tozodealer",
+    "authors": [
+        {
+            "name": "Kevinbyamungu",
+            "email": "156521492+Kevinbyamungu@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.14",
+        "slim/psr7": "^1.7"
+    }
+}
