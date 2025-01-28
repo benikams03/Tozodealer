@@ -1,14 +1,25 @@
 <?php
 
+use DI\Container;
 use Slim\Factory\AppFactory;
 
-// Appelle du ficher autoload pour le chargement automatique de nos different classe
 require './../vendor/autoload.php';
+require './../database/Database.php';
 
-// Creation de notre application
+
+// Initialisation de container, qui joue le meme role que la variable global
+$container = new Container();
+$container->set('pdo', function(){
+    // notre connection avec la base de donner
+    $pdo = new Database();
+    return $pdo->connect();
+});
+
+
+AppFactory::setContainer($container);
 $app = AppFactory::create();
 
-// Appelle le ficher ou se trouve toute nos routes
+
 require './../routes/web.php';
 
 // Lancement de l'application, qui es Slim
